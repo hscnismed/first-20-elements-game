@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="start-page">
+        <h1>Guess the Element!</h1>
+        <p>A two-player game about the names and symbols of the first 20 elements of the periodic table.</p>
+        <button id="start-button">Start Game</button>
+    </div>
+
+    <div class="container hidden" id="game-page">
+        <h2 id="question-text"></h2>
+        <div class="score-board">
+            <div>Player 1 Score: <span id="score-p1">0</span></div>
+            <div>Player 2 Score: <span id="score-p2">0</span></div>
+        </div>
+        <div class="timer">Time left: <span id="timer-display">20</span>s</div>
+        <input type="text" id="guess-input" placeholder="Enter symbol or name...">
+        <button id="guess-button">Guess</button>
+        <button id="skip-button" class="hidden">Skip</button>
+        <button id="steal-button" class="hidden">Steal</button>
+        <button id="reset-button">Reset Game</button>
+    </div>
+
+    <div class="container hidden" id="win-page">
+        <h2 id="win-message"></h2>
+        <p>Final Score:</p>
+        <p>Player 1: <span id="final-score-p1">0</span></p>
+        <p>Player 2: <span id="final-score-p2">0</span></p>
+        <button id="reset-win-page-button">Play Again</button>
+    </div>
+    <footer id="footer">
+      © UP NISMED 2025
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
