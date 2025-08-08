@@ -15,7 +15,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 90%;
-  max-width: 600px;
+  max-width: 900px;
 }
 
 h1,
@@ -45,22 +45,41 @@ button {
 #guess-button,
 #steal-button,
 #reset-button {
-  background-color: black;
+  background-color: #014421;
+  color: white;
+}
+
+#pause-button {
+  background-color: darkorange;
+  color: black;
+}
+
+#pause-button:hover {
+  background-color: orange;
   color: white;
 }
 
 #guess-button:hover,
-#steal-button:hover,
-#reset-button:hover {
-  background-color: gray;
+#steal-button:hover {
+  background-color: #45a049;
 }
 
 #skip-button {
+  background-color: black;
+  color: white;
+}
+
+#skip-button:hover{
+    background-color: gray;
+  color: white;
+}
+
+#reset-button {
   background-color: #7b1113;
   color: white;
 }
 
-#skip-button:hover {
+#reset-button:hover {
   background-color: #da190b;
 }
 
@@ -98,4 +117,9 @@ input[type="text"] {
   text-align: center;
   width: max-content;
   padding: 10px;
+}
+
+.timer-warning {
+  color: red;
+  font-weight: bold;
 }

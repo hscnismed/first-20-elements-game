@@ -32,7 +32,8 @@ let state = {
     timer: 20,
     timerInterval: null,
     isStealTurn: false,
-    stealPlayer: null
+    stealPlayer: null,
+    isPaused: false // <- add this
 };
 
 const startPage = document.getElementById('start-page');
@@ -77,9 +78,9 @@ const updateUI = () => {
         const questionPrompt = state.currentQuestion.type === 'name' ? state.currentQuestion.element.symbol : state.currentQuestion.element.name;
 
         if (state.isStealTurn) {
-            questionText.textContent = `Player ${state.stealPlayer}'s turn to steal. What is the ${state.currentQuestion.type} for ${questionPrompt}?`;
+            questionText.innerHTML = `Player ${state.stealPlayer}'s turn to steal.<br><br>What is the ${state.currentQuestion.type} for ${questionPrompt}?`;
         } else {
-            questionText.textContent = `Player ${state.currentPlayer}'s turn. What is the ${state.currentQuestion.type} for ${questionPrompt}?`;
+            questionText.innerHTML = `Player ${state.currentPlayer}'s turn.<br><br>What is the ${state.currentQuestion.type} for ${questionPrompt}?`;
         }
         guessInput.placeholder = `Enter the ${state.currentQuestion.type}...`;
     }
@@ -102,15 +103,26 @@ const startTimer = (initialTime) => {
     state.timerInterval = setInterval(() => {
         state.timer--;
         timerDisplay.textContent = state.timer;
+
+        // Add red color if timer is 10 or less
+        if (state.timer <= 10) {
+            timerDisplay.classList.add('timer-warning');
+        } else {
+            timerDisplay.classList.remove('timer-warning');
+        }
+
         if (state.timer <= 0) {
             clearInterval(state.timerInterval);
             handleTimeout();
         }
     }, 1000);
+
 };
 
 const startNewTurn = () => {
     if (state.questionsCovered.length >= elements.length) {
+        state.isPaused = false;
+        pauseButton.textContent = 'Pause';
         endGame();
         return;
     }
@@ -161,12 +173,15 @@ const handleGuess = () => {
 };
 
 const startStealTurn = () => {
+    
     clearInterval(state.timerInterval);
     state.isStealTurn = true;
     state.stealPlayer = state.currentPlayer === 1 ? 2 : 1;
     updateUI();
     startTimer(20);
     saveState();
+    state.isPaused = false;
+    pauseButton.textContent = 'Pause';
 };
 
 const handleSteal = () => {
@@ -280,6 +295,23 @@ guessInput.addEventListener('keypress', (e) => {
         }
     }
 });
+
+const pauseButton = document.getElementById('pause-button');
+pauseButton.addEventListener('click', () => {
+    if (state.isPaused) {
+        // Resume
+        startTimer(state.timer); // resume with remaining time
+        pauseButton.textContent = 'Pause';
+        state.isPaused = false;
+    } else {
+        // Pause
+        clearInterval(state.timerInterval);
+        pauseButton.textContent = 'Resume';
+        state.isPaused = true;
+    }
+    saveState();
+});
+
 
 window.addEventListener('beforeunload', () => {
     if (gamePage.classList.contains('hidden') === false) {
