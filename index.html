@@ -4,14 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Element Guessing Game</title>
+  <title>Guess the Element!</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="container" id="start-page">
     <h1>Guess the Element!</h1>
-    <p>This is a two-player game based on the first 20 elements of the periodic table. Players take turns guessing
+    <p>This is a two-player game based on the first 20 elements of the periodic table. In case of multiple participants, 
+      the game may be played with two groups.
+    </p>
+    
+    <p>Players take turns guessing
       either the correct chemical symbol for a given element name, or the correct element name for a given
       symbol. For each round, one of the 20 name-symbol pairs is randomly selected, and the question direction
       (name-to-symbol or symbol-to-name) is also chosen at random.</p>
@@ -26,7 +30,7 @@
     <p>The game begins from a start page, so the timer and gameplay do not begin immediately upon loading or
       reloading the page. Progress is automatically saved locally. If the page is refreshed or reopened mid-game, the
       game resumes from the last turn or steal — though the timer will start at 10 seconds instead of 20. A reset
-      button is available to restart the game at any time. A win screen appears once all 20 items have been
+      button is available to restart the game at any time. A win page appears once all 20 items have been
       answered.</p>
     <button id="start-button">Start Game</button>
     <div>
@@ -40,10 +44,12 @@
       <button id="pause-button">Pause Timer</button>
     </div>
     <div class="score-board">
-      <div>Player 1 Score: <span id="score-p1">0</span></div>
-      <div>Player 2 Score: <span id="score-p2">0</span></div>
+      <div id="board-p1">Player 1 Score: <span id="score-p1">0</span></div>
+      <div id="board-p2">Player 2 Score: <span id="score-p2">0</span></div>
     </div>
-    <h2 id="question-text"></h2>
+    <div id="question-container">
+    <h1 id="question-text"></h1>
+    </div>
     <div class="timer">Time left: <span id="timer-display">20</span></div>
     <input type="text" id="guess-input" placeholder="Enter symbol or name...">
     <div>
@@ -59,8 +65,8 @@
   <div class="container hidden" id="win-page">
     <h2 id="win-message"></h2>
     <p>Final Score:</p>
-    <p>Player 1: <span id="final-score-p1">0</span></p>
-    <p>Player 2: <span id="final-score-p2">0</span></p>
+    <p class="player1">Player 1: <span id="final-score-p1">0</span></p>
+    <p class="player2">Player 2: <span id="final-score-p2">0</span></p>
     <button id="reset-win-page-button">Play Again</button>
   </div>
   <script src="script.js"></script>

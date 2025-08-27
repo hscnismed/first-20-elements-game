@@ -40,6 +40,7 @@ button {
 
 #start-button:hover {
   background-color: #45a049;
+  font-weight: bold;
 }
 
 #guess-button,
@@ -50,18 +51,20 @@ button {
 }
 
 #pause-button {
-  background-color: darkorange;
-  color: black;
+  background-color: darkslategray;
+  color: white;
 }
 
 #pause-button:hover {
-  background-color: orange;
+  background-color: slategray;
   color: white;
+  font-weight: bold;
 }
 
 #guess-button:hover,
 #steal-button:hover {
   background-color: #45a049;
+  font-weight: bold;
 }
 
 #skip-button {
@@ -70,8 +73,9 @@ button {
 }
 
 #skip-button:hover{
-    background-color: gray;
+  background-color: steelblue;
   color: white;
+  font-weight: bold;
 }
 
 #reset-button {
@@ -81,6 +85,7 @@ button {
 
 #reset-button:hover {
   background-color: #da190b;
+  font-weight: bold;
 }
 
 input[type="text"] {
@@ -97,6 +102,7 @@ input[type="text"] {
   justify-content: space-around;
   font-size: 1.2em;
   margin-top: 20px;
+  
 }
 
 .timer {
@@ -122,4 +128,35 @@ input[type="text"] {
 .timer-warning {
   color: red;
   font-weight: bold;
+}
+
+#board-p1 {
+  background-color: purple;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+#board-p2 {
+  background-color: darkorange;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.player1 { color: purple; }
+.player2 { color: darkorange; }
+
+#guess-input {
+  border: solid 1px black;
+  
+  width: 50%;
+}
+
+#reset-win-page-button:hover{
+  background-color: black;
+  color: white;
+  font-family: bold;
 }

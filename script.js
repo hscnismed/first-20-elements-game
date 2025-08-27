@@ -78,9 +78,9 @@ const updateUI = () => {
         const questionPrompt = state.currentQuestion.type === 'name' ? state.currentQuestion.element.symbol : state.currentQuestion.element.name;
 
         if (state.isStealTurn) {
-            questionText.innerHTML = `Player ${state.stealPlayer}'s turn to steal.<br><br>What is the ${state.currentQuestion.type} for ${questionPrompt}?`;
+            questionText.innerHTML = `<span class="player${state.stealPlayer}"> Player ${state.stealPlayer}'s </span> turn to steal.<br><br>What is the ${state.currentQuestion.type} for ${questionPrompt}?`;
         } else {
-            questionText.innerHTML = `Player ${state.currentPlayer}'s turn.<br><br>What is the ${state.currentQuestion.type} for ${questionPrompt}?`;
+            questionText.innerHTML = `<span class="player${state.currentPlayer}"> Player ${state.currentPlayer}'s </span> turn.<br><br>What is the ${state.currentQuestion.type} for ${questionPrompt}?`;
         }
         guessInput.placeholder = `Enter the ${state.currentQuestion.type}...`;
     }
@@ -239,9 +239,9 @@ const endGame = () => {
     finalScoreP1.textContent = state.player1Score;
     finalScoreP2.textContent = state.player2Score;
     if (state.player1Score > state.player2Score) {
-        winMessage.textContent = "Player 1 Wins!";
+        winMessage.innerHTML = '<span class="player1">Player 1 </span> Wins!';
     } else if (state.player2Score > state.player1Score) {
-        winMessage.textContent = "Player 2 Wins!";
+        winMessage.innerHTML = '<span class="player2">Player 2 </span> Wins!';
     } else {
         winMessage.textContent = "It's a Tie!";
     }
@@ -301,12 +301,12 @@ pauseButton.addEventListener('click', () => {
     if (state.isPaused) {
         // Resume
         startTimer(state.timer); // resume with remaining time
-        pauseButton.textContent = 'Pause';
+        pauseButton.textContent = 'Pause Timer';
         state.isPaused = false;
     } else {
         // Pause
         clearInterval(state.timerInterval);
-        pauseButton.textContent = 'Resume';
+        pauseButton.textContent = 'Resume Timer';
         state.isPaused = true;
     }
     saveState();
