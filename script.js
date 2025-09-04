@@ -162,11 +162,11 @@ const handleGuess = () => {
         state[`player${state.currentPlayer}Score`]++;
         state.questionsCovered.push(state.currentQuestion.element.name);
         clearInterval(state.timerInterval);
-        alert(`Correct! Player ${state.currentPlayer} gets a point.`);
+        alert(`😀 Correct! Player ${state.currentPlayer} gets 1 point.`);
         state.currentPlayer = state.currentPlayer === 1 ? 2 : 1;
         startNewTurn();
     } else {
-        alert("Incorrect answer. Next player can steal.");
+        alert("☹️ Incorrect answer. Next player can steal.");
         startStealTurn();
     }
     saveState();
@@ -181,7 +181,7 @@ const startStealTurn = () => {
     startTimer(20);
     saveState();
     state.isPaused = false;
-    pauseButton.textContent = 'Pause';
+    pauseButton.textContent = '⏸️ Pause Timer';
 };
 
 const handleSteal = () => {
@@ -199,11 +199,11 @@ const handleSteal = () => {
         state[`player${state.stealPlayer}Score`]++;
         state.questionsCovered.push(state.currentQuestion.element.name);
         clearInterval(state.timerInterval);
-        alert(`Steal successful! Player ${state.stealPlayer} gets a point.`);
+        alert(`🥷 Steal successful! Player ${state.stealPlayer} gets 1 point.`);
         state.currentPlayer = state.stealPlayer;
         startNewTurn();
     } else {
-        alert("Incorrect steal. Moving to next question.");
+        alert("❌ Incorrect steal. Moving to next question.");
         state.unansweredQuestions.push(state.currentQuestion.element);
         state.currentPlayer = state.currentPlayer === 1 ? 2 : 1;
         startNewTurn();
@@ -301,12 +301,12 @@ pauseButton.addEventListener('click', () => {
     if (state.isPaused) {
         // Resume
         startTimer(state.timer); // resume with remaining time
-        pauseButton.textContent = 'Pause Timer';
+        pauseButton.textContent = '⏸️ Pause Timer';
         state.isPaused = false;
     } else {
         // Pause
         clearInterval(state.timerInterval);
-        pauseButton.textContent = 'Resume Timer';
+        pauseButton.textContent = '▶️ Resume Timer';
         state.isPaused = true;
     }
     saveState();

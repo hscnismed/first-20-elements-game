@@ -14,13 +14,30 @@ body {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 90%;
+  width: 95%;
   max-width: 900px;
 }
 
 h1,
 h2 {
   color: #333;
+}
+
+#start-title {
+  font-size: 3vh;
+}
+
+.heading {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  font-size: 2.5vh;
+}
+
+.start-content {
+  text-align: left;
+  font-size: 2vh;
+  line-height: 1.2;
 }
 
 button {

@@ -10,28 +10,46 @@
 
 <body>
   <div class="container" id="start-page">
-    <h1>Guess the Element!</h1>
-    <p>This is a two-player game based on the first 20 elements of the periodic table. In case of multiple participants, 
+    <h1 id="start-title">Guess the Element!</h1>
+    <h3 class="heading">▶️ Game Overview</h3>
+    <p class="start-content">
+      This is a two-player game based on the first 20 elements of the periodic table. If you have multiple participants,
       the game may be played with two groups.
     </p>
     
-    <p>Players take turns guessing
-      either the correct chemical symbol for a given element name, or the correct element name for a given
-      symbol. For each round, one of the 20 name-symbol pairs is randomly selected, and the question direction
-      (name-to-symbol or symbol-to-name) is also chosen at random.</p>
-    <p>A correct answer earns the player 1 point. If the answer is incorrect, the other player has a chance to
-      steal. A successful steal also earns 1 point and gives that player the next regular turn. If the steal is
-      incorrect or goes unanswered, the game simply moves on to a new question. Missed pairs are stored and can appear
-      again later.</p>
-    <p>Each turn — including steal attempts — is timed at 20 seconds. If no answer is submitted in time, the game
-      proceeds to the next item. The game ends once all 20 element-symbol pairs have been used. Since each pair is only
-      used once, and only one point is awarded per pair, the total combined score will always be exactly 20 points.
-    </p>
-    <p>The game begins from a start page, so the timer and gameplay do not begin immediately upon loading or
-      reloading the page. Progress is automatically saved locally. If the page is refreshed or reopened mid-game, the
-      game resumes from the last turn or steal — though the timer will start at 10 seconds instead of 20. A reset
-      button is available to restart the game at any time. A win page appears once all 20 items have been
-      answered.</p>
+
+    <h3 class="heading">💡 How to Play</h3>
+    <ul class="start-content">
+      <li>Players take turns guessing either the correct chemical symbol for a given element name, or the correct
+        element name for a given symbol.</li>
+      <li>For each round, one of the 20 element-symbol pairs is randomly selected.</li>
+      <li>The direction of the question (name-to-symbol or symbol-to-name) is also chosen at random.</li>
+    </ul>
+    
+
+    <h3 class="heading">🔢 Scoring and Steals</h3>
+    <ul class="start-content">
+      <li>A correct answer earns the player <strong>1 point</strong>.</li>
+      <li>If the answer is incorrect, the other player has a chance to <strong>steal</strong>. A successful steal also
+        earns <strong>1 point</strong> and gives that player the next regular turn.</li>
+      <li>If the steal is incorrect or goes unanswered, the game simply moves on to a new question.</li>
+      <li>The game ends once all 20 element-symbol pairs have been used. The total combined score will always be exactly
+        <strong>20 points</strong> since each pair is only used once and one point is awarded per pair.</li>
+    </ul>
+    
+
+    <h3 class="heading">⏲️ Timing, Saving, and Resetting</h3>
+    <ul class="start-content">
+      <li>Each turn — including steal attempts — is timed at <strong>20 seconds</strong>. If no answer is submitted in
+        time, the game proceeds to the next item.</li>
+      <li>Progress is automatically saved locally. If the page is refreshed or reopened mid-game, the game resumes from
+        the last turn or steal, though the timer will start at <strong>10 seconds</strong> instead of 20.</li>
+      <li>A <strong>Reset</strong> button is available to restart the game at any time after all 20 items have been
+        answered.</li>
+      <li>A win page appears once all 20 items have been answered.</li>
+    </ul>
+
+
     <button id="start-button">Start Game</button>
     <div>
       <p>© UP NISMED 2025</p>
@@ -40,22 +58,22 @@
 
   <div class="container hidden" id="game-page">
     <div>
-      <button id="reset-button">Reset Game</button>
-      <button id="pause-button">Pause Timer</button>
+      <button id="reset-button">🔁 Reset Game</button>
+      <button id="pause-button">⏸️ Pause Timer</button>
     </div>
     <div class="score-board">
       <div id="board-p1">Player 1 Score: <span id="score-p1">0</span></div>
       <div id="board-p2">Player 2 Score: <span id="score-p2">0</span></div>
     </div>
     <div id="question-container">
-    <h1 id="question-text"></h1>
+      <h1 id="question-text"></h1>
     </div>
     <div class="timer">Time left: <span id="timer-display">20</span></div>
     <input type="text" id="guess-input" placeholder="Enter symbol or name...">
     <div>
-      <button id="guess-button">Guess</button>
-      <button id="skip-button" class="hidden">Skip</button>
-      <button id="steal-button" class="hidden">Steal</button>
+      <button id="guess-button">👉 Submit</button>
+      <button id="skip-button" class="hidden">🦘 Skip</button>
+      <button id="steal-button" class="hidden">🥷 Steal</button>
     </div>
     <div>
       <p>© UP NISMED 2025</p>
