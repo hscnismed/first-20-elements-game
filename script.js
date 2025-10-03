@@ -78,9 +78,9 @@ const updateUI = () => {
         const questionPrompt = state.currentQuestion.type === 'name' ? state.currentQuestion.element.symbol : state.currentQuestion.element.name;
 
         if (state.isStealTurn) {
-            questionText.innerHTML = `<span class="player${state.stealPlayer}"> Player ${state.stealPlayer}'s </span> turn to steal.<br><br>What is the ${state.currentQuestion.type} for ${questionPrompt}?`;
+            questionText.innerHTML = `<span class="player${state.stealPlayer}"> Player ${state.stealPlayer}'s </span> turn to steal.<br><br>What is the ${state.currentQuestion.type} of the element ${questionPrompt}?`;
         } else {
-            questionText.innerHTML = `<span class="player${state.currentPlayer}"> Player ${state.currentPlayer}'s </span> turn.<br><br>What is the ${state.currentQuestion.type} for ${questionPrompt}?`;
+            questionText.innerHTML = `<span class="player${state.currentPlayer}"> Player ${state.currentPlayer}'s </span> turn.<br><br>What is the ${state.currentQuestion.type} of the element ${questionPrompt}?`;
         }
         guessInput.placeholder = `Enter the ${state.currentQuestion.type}...`;
     }
